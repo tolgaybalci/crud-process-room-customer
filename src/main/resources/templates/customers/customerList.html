@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID<th>
+                <th>Customer Name</th>
+                <th>Room Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="customer:${customers}" th:object="${customer}">
+                <td th:text="*{id}"></td>
+                <td th:text="*{name}"></td>
+                <td th:text="*{room.name}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
