@@ -1,17 +1,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <body>
 <div>
-    <form method="post" th:action="@{/rooms/new}" th:object="${room}">
-        <label for="name">Room Name</label>
-        <input type="text" id="name" th:field="*{name}"/>
+  <form method="post" th:action="@{/rooms/new}" th:object="${room}">
+    <div>
+      <label for="name">Room Name</label>
+      <input type="text" id="name" th:field="*{name}"/>
+    </div>
 
-        <button type="submit">Create Rooms</button>
+    <div>
+      <label for="capacity">Room Capacity</label>
+      <input type="number" id="capacity" th:field="*{capacity}"/>
+    </div>
 
-    </form>
+    <button type="submit">Create Room</button>
+
+  </form>
 </div>
 </body>
 </html>

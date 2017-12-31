@@ -1,6 +1,5 @@
 package com.example.crudprocesscustomerroom.customerroomcrudprocess.domain;
 
-import com.example.crudprocesscustomerroom.customerroomcrudprocess.CustomerRoomCrudProcessApplication;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,10 +14,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Room extends BaseEntity{
+public class Room extends BaseEntity {
 
-    private String name;
+	private String name;
 
-    @OneToMany(mappedBy = "room")
-    private List<Customer> customers;
+	@OneToMany(mappedBy = "room")
+	private List<Customer> customers;
+
+	private Integer capacity;
 }

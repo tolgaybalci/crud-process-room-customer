@@ -7,16 +7,19 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import java.util.Date;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Customer extends BaseEntity{
+public class Customer extends BaseEntity {
 
-    private String name;
+	private String name;
 
-    @ManyToOne
-    private Room room;
+	@ManyToOne
+	private Room room;
+
+	private Date creationDate;
 }

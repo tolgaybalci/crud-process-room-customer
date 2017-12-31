@@ -10,12 +10,14 @@
         <tr>
             <th>ID<th>
             <th>Room Name</th>
+            <th>Room Capacity</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="room:${rooms}" th:object="${room}">
             <td th:text="*{id}"></td>
             <td th:text="*{name}"></td>
+            <td th:text="*{capacity}"></td>
         </tr>
         </tbody>
     </table>

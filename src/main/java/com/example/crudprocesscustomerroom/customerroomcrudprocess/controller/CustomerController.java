@@ -3,6 +3,7 @@ package com.example.crudprocesscustomerroom.customerroomcrudprocess.controller;
 import com.example.crudprocesscustomerroom.customerroomcrudprocess.domain.Customer;
 import com.example.crudprocesscustomerroom.customerroomcrudprocess.repository.CustomerRepository;
 import com.example.crudprocesscustomerroom.customerroomcrudprocess.repository.RoomRepository;
+import com.example.crudprocesscustomerroom.customerroomcrudprocess.service.CustomerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,13 +24,16 @@ public class CustomerController {
     @Autowired
     private RoomRepository roomRepository;
 
+    @Autowired
+    private CustomerService customerService;
+
     @GetMapping("")
     public String getCustomerList(Model model) {
         model.addAttribute("customers", customerRepository.findAll());
         return "customers/customerList";
     }
 
-    @RequestMapping("/new")
+    @GetMapping("/new")
     public String getNewCustomer(Model model) {
         model.addAttribute("customer", new Customer());
         model.addAttribute("rooms", roomRepository.findAll());
@@ -42,7 +46,7 @@ public class CustomerController {
             log.warn("Customer with {} id is not found", customer.getId());
             return "customers/newCustomer";
         } else {
-            customerRepository.save(customer);
+            customerService.create(customer);
         }
         return "redirect:/customers";
     }
