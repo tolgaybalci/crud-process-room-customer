@@ -12,6 +12,7 @@
 
         <label for="room">Customer Room</label>
         <select id="room" th:field="*{room}">
+            <option value="">Room</option>
             <option th:each="room:${rooms}" th:value="${room.id}" th:text="${room.name}"></option>
         </select>
         <button type="submit">Create Customer</button>

@@ -13,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="customer:${customers}" th:object="${customer}">
+            <tr th:object="${customer}">
                 <td th:text="*{id}"></td>
                 <td th:text="*{name}"></td>
             </tr>

@@ -20,7 +20,7 @@ public class CustomerController {
 
     @GetMapping("")
     public String getCustomerList(Model model){
-        model.addAttribute("customer", customerRepository.findAll());
+        model.addAttribute("customers", customerRepository.findAll());
         return "customers/customerList";
     }
 
